@@ -1,0 +1,61 @@
+
+enum JobField {
+  OTHER
+  TECH
+  FINANCE
+  MARKETING
+  SALES
+  MANAGEMENT
+  MEDIA
+  LAW
+  ENGINEERING
+  BUSINESS
+  HR
+  OPERATIONS
+  DESIGN
+  WRITING
+  EDITING
+  TEACHING
+  HEALTHCARE
+  ARCHITECTURE
+  HOSPITALITY
+  SPORTS
+  NONPROFIT
+}
+
+model User {
+  id           String         @id @default(cuid())
+  name         String
+  password     String
+  email        String         @unique
+  createdAt    DateTime       @default(now())
+  jobs         Job[]
+}
+
+model Job {
+  id             String        @id @default(cuid())
+  title          String
+  field          JobField      @default(OTHER)
+  experience     String
+  designation    String
+  qualifications String
+  skills         String
+  location       String
+  description    String
+  createdAt      DateTime      @default(now())
+  employer       User          @relation(fields: [employerId], references: [id])
+  employerId     String
+  applications   Application[]
+}
+
+model Application {
+  id         String     @id @default(cuid())
+  name       String
+  email      String
+  phone      String
+  resume     String
+  linkedin   String
+  createdAt  DateTime   @default(now())
+  job        Job        @relation(fields: [jobId], references: [id])
+  jobId      String
+}
