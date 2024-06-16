@@ -31,7 +31,9 @@ export default async function ContactPage() {
       <div className="flex relative top-[-50px] max-sm:flex-col-reverse justify-center items-start" id="contact">
         
         <div className="bg-white border-black border-t-4 rounded-xl p-2 m-2 flex flex-col items-center">
-          <Image src={Map} className="w-full object-contain rounded-xl border-gray-400 border cursor-pointer hover:brightness-75 " alt="map"/>
+          <Link href="https://maps.app.goo.gl/149ZdsWwu6TBXS3e9?g_st=iw">
+            <Image src={Map} className="w-full object-contain rounded-xl border-gray-400 border cursor-pointer hover:brightness-75 " alt="map"/>
+          </Link>
           <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 place-items-center sm:place-items-start">
             {ContactLinks.map((navlink, i) => (
                 <Link key={i} href={`/${navlink.link}`} className={`flex flex-col items-center text-center m-4 w-52 ${i===2 ? " max-sm:col-span-2" : "mx-[-20px]"}`}>
