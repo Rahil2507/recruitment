@@ -43,9 +43,6 @@ export default async function AdminPage() {
     y: item.applications,
   }));
 
-  console.log(jobsData)
-
-  
   return (
     <>
       <div className="bg-white p-10 rounded-xl ">

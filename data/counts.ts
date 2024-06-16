@@ -8,5 +8,5 @@ export  const jobNumbers = async () => {
       status: "DELETED"
     }
   })
-  console.log(nos)
+  // console.log(nos)
 }
